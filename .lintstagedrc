@@ -1,0 +1,11 @@
+{
+  "*.{js,jsx,ts,tsx}": [
+    "eslint --cache --fix",
+    "prettier --write --list-different",
+    "git add ."
+  ],
+  "*.{json,md,html,css,scss,sass}": [
+    "prettier --write --list-different",
+    "git add ."
+  ]
+}
