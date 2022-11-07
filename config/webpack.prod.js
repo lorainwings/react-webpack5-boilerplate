@@ -5,9 +5,11 @@ const base = require('./webpack.base.js')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const webpackBar = require('webpackbar')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const __CDN__ = 'http://localhost:8080/'
+const __PROFILE__ = process.env.PROFILE === 'analysis'
 
-module.exports = merge(base, {
+const config = merge(base, {
   mode: 'production',
   devtool: false,
 
@@ -15,17 +17,18 @@ module.exports = merge(base, {
     clean: true,
     publicPath: __CDN__,
     path: paths.build,
-    assetModuleFilename: 'assets/[name].[contenthash:4][ext]',
-    filename: 'js/[name].[chunkhash:16].js',
-    chunkFilename: 'js/[name].[chunkhash:16].js'
+    hashFunction: 'xxhash64',
+    assetModuleFilename: 'assets/[name].[contenthash:8][ext]',
+    filename: 'js/[name].[chunkhash:8].js',
+    chunkFilename: 'js/[name].[chunkhash:8].js'
   },
 
   target: ['web', 'es5'],
 
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'styles/[name].[contenthash].css',
-      chunkFilename: '[id].css'
+      filename: 'styles/[name].[contenthash:8].css',
+      chunkFilename: 'styles/[name].[contenthash:8].css'
     }),
     new webpackBar()
   ],
@@ -69,16 +72,23 @@ module.exports = merge(base, {
       }
     ]
   },
+
   optimization: {
+    /* 生产模式默认开启 */
+    moduleIds: 'deterministic',
+    chunkIds: 'deterministic',
     minimize: true,
     minimizer: [new CssMinimizerPlugin(), '...'],
-    runtimeChunk: {
-      name: 'runtime'
-    }
+    runtimeChunk: { name: 'runtime' }
   },
+
   performance: {
     hints: false,
     maxEntrypointSize: 512000,
     maxAssetSize: 512000
   }
 })
+
+if (__PROFILE__) config.plugins.push(new BundleAnalyzerPlugin())
+
+module.exports = config

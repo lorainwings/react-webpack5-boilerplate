@@ -7,7 +7,7 @@ import { Link, useParams } from 'react-router-dom'
 
 // For using IE 11 also
 
-function EditPost() {
+function EditPost(): React.ReactElement {
   const [selectedPostId, setSelectedPostId]: any = useState(null)
   const [selectedPostTitle, setSelectedPostTitle]: any = useState(null)
   const [selectedPostBody, setSelectedPostBody]: any = useState(null)
