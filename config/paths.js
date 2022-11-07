@@ -11,11 +11,11 @@ module.exports = {
   // Static files that get copied to build folder
   public: path.resolve(__dirname, '../public'),
 
+  cache: path.resolve(__dirname, '../.cache'),
+
   components: path.resolve(__dirname, '../src/components/'),
 
   images: path.resolve(__dirname, '../src/assets/images/'),
 
-  styles: path.resolve(__dirname, '../src/assets/styles/'),
-
-  cache: path.resolve(__dirname, '../src/.cache')
+  styles: path.resolve(__dirname, '../src/assets/styles/')
 }

@@ -1,18 +1,26 @@
 module.exports = {
   root: true,
   extends: [
+    'eslint:recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier'
+    'prettier',
+    'plugin:prettier/recommended'
   ],
   parser: '@typescript-eslint/parser',
-  plugins: ['react', '@typescript-eslint'],
+  parserOptions: {
+    ecmaFeatures: { jsx: true },
+    ecmaVersion: 'latest',
+    sourceType: 'module'
+  },
+  plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
+    'prettier/prettier': 'error',
     'react/react-in-jsx-scope': 'off',
     indent: 'off',
     '@typescript-eslint/indent': ['error', 2],
     quotes: 'off',
-    '@typescript-eslint/quotes': ['error', 'single'],
+    '@typescript-eslint/quotes': 'off',
     semi: 'off',
     '@typescript-eslint/semi': ['error', 'never'],
     'react/display-name': 'off'

@@ -28,7 +28,6 @@ function EditPost() {
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }, [])
 
-
   // On Submit
   const onSubmit = (data) => {
     console.log(data)
@@ -82,7 +81,7 @@ function EditPost() {
       <br />
       <br />
       <div className="table-responsive">
-        <form >
+        <form>
           <label>
             <b>Id:</b>
           </label>
@@ -99,11 +98,7 @@ function EditPost() {
             <b>Title:</b>
           </label>
           <br />
-          <input
-            size={30}
-            name="titlePost"
-            defaultValue={selectedPostTitle}
-          />
+          <input size={30} name="titlePost" defaultValue={selectedPostTitle} />
 
           <br />
 
@@ -112,11 +107,7 @@ function EditPost() {
           </label>
           <br />
 
-          <input
-            size={30}
-            name="bodyPost"
-            defaultValue={selectedPostBody}
-          />
+          <input size={30} name="bodyPost" defaultValue={selectedPostBody} />
 
           <br />
           <br />

@@ -13,6 +13,9 @@
     "noEmit": true,
     "jsx": "react",
     "noImplicitAny": false,
+    // "declaration": true,
+    // "declarationDir": "dist",
+    // "emitDeclarationOnly": true,
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],

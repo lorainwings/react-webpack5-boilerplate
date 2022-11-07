@@ -18,7 +18,7 @@ class MyInfo extends React.Component {
         <h4>My Blog</h4>
 
         <a href="https://lorainwings.github.io/blog/">
-          {'Lorain\'s Tech Blogs'}
+          {"Lorain's Tech Blogs"}
         </a>
 
         <br />
