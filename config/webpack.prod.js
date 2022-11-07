@@ -15,6 +15,7 @@ const config = merge(base, {
 
   output: {
     clean: true,
+    pathinfo: false,
     publicPath: __CDN__,
     path: paths.build,
     hashFunction: 'xxhash64',
@@ -78,8 +79,9 @@ const config = merge(base, {
     moduleIds: 'deterministic',
     chunkIds: 'deterministic',
     minimize: true,
-    minimizer: [new CssMinimizerPlugin(), '...'],
-    runtimeChunk: { name: 'runtime' }
+    minimizer: [new CssMinimizerPlugin({ parallel: 4 }), '...'],
+    runtimeChunk: { name: 'runtime' },
+    splitChunks: { chunks: 'all' }
   },
 
   performance: {

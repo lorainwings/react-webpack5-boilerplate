@@ -18,6 +18,7 @@ module.exports = {
 
   resolve: {
     extensions: ['.tsx', '.ts', '.jsx', '.js'],
+    modules: ['node_modules', paths.src],
     alias: {
       '@components': paths.components,
       '@images': paths.images,
@@ -40,8 +41,12 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
+            loader: 'thread-loader',
+            options: { workers: 2 }
+          },
+          {
             loader: 'babel-loader',
-            options: { compact: true }
+            options: { compact: true, cacheDirectory: true }
           }
         ]
       },
