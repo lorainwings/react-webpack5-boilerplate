@@ -5,9 +5,9 @@
 import React from 'react'
 
 // Note: Using an Alias in Webpack
-import {Header} from '@components/Header'
+import { Header } from '@components/Header'
 import Menu from '@components/Menu'
-import {Bottom} from '@components/Bottom'
+import { Bottom } from '@components/Bottom'
 
 class App extends React.Component {
   render() {

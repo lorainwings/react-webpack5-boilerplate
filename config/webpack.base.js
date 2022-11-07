@@ -6,6 +6,7 @@ module.exports = {
   // Where webpack looks to start building the bundle and include polyfill
   entry: `${paths.src}/index.tsx`,
 
+  // Usually configured as 'errors-only'
   stats: {
     chunks: false,
     assetsSpace: 1,
@@ -18,6 +19,8 @@ module.exports = {
 
   resolve: {
     extensions: ['.tsx', '.ts', '.jsx', '.js'],
+    modules: ['node_modules', paths.src],
+    mainFields: ['jsnext:main', 'browser', 'main'],
     alias: {
       '@components': paths.components,
       '@images': paths.images,
@@ -27,8 +30,8 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'webpack Boilerplate',
-      template: paths.public + '/index.html', // template file
+      title: 'React Webpack5 Boilerplate',
+      template: `${paths.public}/index.html`, // template file
       filename: 'index.html' // output file
     })
   ],
@@ -40,28 +43,14 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
+            loader: 'thread-loader',
+            options: { workers: 2 }
+          },
+          {
             loader: 'babel-loader',
-            options: { compact: true }
+            options: { compact: true, cacheDirectory: true }
           }
         ]
-      },
-
-      {
-        test: /\.(scss|css)$/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: { sourceMap: true, importLoaders: 1 }
-          },
-          { loader: 'postcss-loader', options: { sourceMap: true } },
-          { loader: 'sass-loader', options: { sourceMap: true } }
-        ]
-      },
-
-      {
-        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-        type: 'asset/resource'
       },
 
       { test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: 'asset/inline' }

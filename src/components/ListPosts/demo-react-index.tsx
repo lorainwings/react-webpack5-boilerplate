@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-type TPost = {id: string, title:string}
+type TPost = { id: string; title: string }
 
 function ListPosts() {
   const [totalPosts, setTotalPosts] = useState<TPost[]>([])

@@ -18,7 +18,6 @@ function CreatePost() {
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }, [])
 
-
   // On Submit
   const onSubmit = (data) => {
     console.log(data)
@@ -65,7 +64,6 @@ function CreatePost() {
       <Link to="/listposts">Show the 10 Posts again</Link>
       <br />
       <br />
-
     </div>
   )
 }

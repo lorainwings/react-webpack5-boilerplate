@@ -4,7 +4,12 @@
     "prettier --write --list-different",
     "git add ."
   ],
-  "*.{json,md,html,css,scss,sass}": [
+  "*.{json,md,html}": [
+    "prettier --write --list-different",
+    "git add ."
+  ],
+  "*.{css,scss,sass}": [
+    "pnpm stylelint:fix",
     "prettier --write --list-different",
     "git add ."
   ]

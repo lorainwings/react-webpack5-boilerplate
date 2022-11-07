@@ -12,7 +12,11 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react",
+    "types": ["webpack-env"],
     "noImplicitAny": false,
+    // "declaration": true,
+    // "declarationDir": "dist",
+    // "emitDeclarationOnly": true,
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],

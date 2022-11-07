@@ -3,18 +3,18 @@
 import React from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
 
-import {Home} from '@components/Home'
-import {About} from '@components/About'
-import {MyInfo} from '@components/MyInfo'
+import { Home } from '@components/Home'
+import { About } from '@components/About'
+import { MyInfo } from '@components/MyInfo'
 
-import {DemoTSReact} from '@components/DemoTSReact'
+import { DemoTSReact } from '@components/DemoTSReact'
 
 import { ListPosts } from '@components/ListPosts/'
 import { SelectedPost } from '@components/SelectedPost/'
 import { EditPost } from '@components/EditPost/'
 import { CreatePost } from '@components/CreatePost/'
 
-import {Error} from '@components/Error'
+import { Error } from '@components/Error'
 
 // Import of an asset usin alias in Webpack
 import webpackLogo from '@images/favicon.png'
